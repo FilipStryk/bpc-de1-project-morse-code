@@ -38,14 +38,17 @@ begin
             if (s_length < 7) then
                 s_length <= s_length + 1;
             end if;
-            
-            for i in s_length downto 1 loop
-                s_output(i) := s_output(i-1);
+
+            for i in 7 downto 1 loop
+                if (i <= s_length) then
+                    s_output(i) := s_output(i-1);
+                end if; 
             end loop;
+
             s_output(0) := data_input;            
-        
+
         end if;
-        
+
         output_0 <= s_output(0);
         output_1 <= s_output(1);
         output_2 <= s_output(2);
