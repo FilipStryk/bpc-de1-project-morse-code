@@ -37,7 +37,7 @@ end tb_morse_to_bin;
 
 architecture testbench of tb_morse_to_bin is
     -- Local constants
-    constant c_CLK_100MHZ_PERIOD : time := 10 ns;
+    constant c_CLK_100MHZ_PERIOD : time := 10 ms;
 
     -- Local signals
     signal s_clk_100MHz : std_logic;

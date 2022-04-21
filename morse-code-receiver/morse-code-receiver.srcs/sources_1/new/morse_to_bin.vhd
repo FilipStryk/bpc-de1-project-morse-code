@@ -33,11 +33,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity morse_to_bin is
      port(
-        clk      : in  std_logic;  -- Main clock
-        reset    : in  std_logic;  -- Synchronous reset       
-        dot      : in  std_logic;  -- Morse code - dot
-        dash     : in  std_logic;  -- Morse code - dash
-        enter    : in  std_logic;  -- Submit input
+        local_rst    : in  std_logic;  -- Submit input
+        enter    : in  std_logic;  -- Submit input       
+        dot_i      : in  std_logic;  -- Morse code - dot
+        dash_i     : in  std_logic;  -- Morse code - dash
         bin_o    : out  std_logic_vector(7 downto 0)
     );
 end entity morse_to_bin;
@@ -45,15 +44,39 @@ end entity morse_to_bin;
 architecture behavioral of morse_to_bin is
 
     -- Local variable
-    signal s_morse_local : std_logic_vector(4 downto 0);
-    
+    signal s_morse_local : std_logic_vector(4 downto 0);   
     shared variable i : integer := 0;
+    
 begin
-      
- p_morse_to_bin: process(clk)
-    begin
-        if rising_edge(clk) then
-            if enter = '1' then
+    p_control_reset : process(local_rst)
+        begin
+            if local_rst = '1' then
+                i:= 0;
+            elsif local_rst /= '1' then
+                NULL;        
+            end if;               
+    end process p_control_reset;
+    
+
+    p_morse : process(dot_i, dash_i)
+        begin
+            if local_rst /= '1' then
+                if dot_i = '1' then
+                    s_morse_local(i) <= '0';
+                    i:= i+1;
+                end if;
+       
+                if dash_i = '1' then
+                    s_morse_local(i) <= '1';
+                    i:= i+1;
+                end if; 
+            end if;     
+        end process p_morse;
+    
+ 
+    p_morse_to_bin: process(enter)
+        begin
+        if enter = '1' then
                 case i is
                     when 1 =>
                         case s_morse_local(i-1 downto 0) is 
@@ -159,8 +182,6 @@ begin
                     end case;
             i:=0;              
             end if;
-
-        end if;
     end process p_morse_to_bin;
 
       
