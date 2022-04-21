@@ -36,7 +36,7 @@ begin
     uut : entity work.btn_to_morse
         port map(
             clk => s_clk,
-            rst => '0',
+            local_rst => '0',
             btn_i => s_btn
         );
     

@@ -186,4 +186,4 @@ begin
 
       
        
-end architecture behavioral;
+end architecture Behavioral;

@@ -28,7 +28,7 @@ begin
             ce_o => s_en
         );
 
-    p_esot : process(btn_i, s_en)
+    p_btn_to_morse : process(btn_i, s_en)
         
     begin 
         if local_rst /= '1' then
@@ -50,7 +50,6 @@ begin
             dot_o <= '0';
             dash_o <= '0';    
         end if;
-    end process p_esot;
+    end process p_btn_to_morse; 
     
-
 end Behavioral;

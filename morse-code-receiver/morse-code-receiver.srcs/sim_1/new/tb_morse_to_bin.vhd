@@ -52,10 +52,9 @@ architecture testbench of tb_morse_to_bin is
 begin
     uut_ce : entity work.morse_to_bin
     port map(
-        clk   => s_clk_100MHz,
-        reset => s_reset,
-        dot => s_dot,
-        dash => s_dash,
+        local_rst => s_reset,
+        dot_i => s_dot,
+        dash_i => s_dash,
         enter => s_enter,
         bin_o => s_bin_o
     );
