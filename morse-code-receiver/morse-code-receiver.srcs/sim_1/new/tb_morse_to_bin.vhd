@@ -47,7 +47,7 @@ architecture testbench of tb_morse_to_bin is
     signal s_dot : std_logic;
     signal s_dash : std_logic;
     signal s_enter : std_logic;
-    signal s_bin_i : std_logic_vector(7 downto 0);
+    signal s_bin_o : std_logic_vector(7 downto 0);
       
 begin
     uut_ce : entity work.morse_to_bin
@@ -57,7 +57,7 @@ begin
         dot => s_dot,
         dash => s_dash,
         enter => s_enter,
-        bin_i => s_bin_i
+        bin_o => s_bin_o
     );
     p_clk_gen : process
     begin
