@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="54" Path="C:/Users/Natalia/Desktop/VUT_WIN/DE1/bpc-de1-project-morse-code/morse-code-receiver/morse-code-receiver.xpr">
+<Project Version="7" Minor="54" Path="C:/Users/David Pěčonka/Desktop/DE1-projekt/bpc-de1-project-morse-code/morse-code-receiver/morse-code-receiver.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="4ccb40c524c24106986348c5b9a772b8"/>
@@ -121,6 +121,12 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/display_driver.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/top.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
