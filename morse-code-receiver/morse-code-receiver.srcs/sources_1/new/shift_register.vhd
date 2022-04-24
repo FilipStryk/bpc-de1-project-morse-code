@@ -29,7 +29,7 @@ begin
         if (reset = '1') then
             s_length <= 0;
             v_output := (others => (others => '0'));
-        elsif rising_edge(clock) then
+        elsif falling_edge(clock) then
             if (s_length < 7) then
                 s_length <= s_length + 1;
             end if;
