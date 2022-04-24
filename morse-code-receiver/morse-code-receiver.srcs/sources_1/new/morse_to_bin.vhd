@@ -37,7 +37,8 @@ entity morse_to_bin is
         enter    : in  std_logic;  -- Submit input       
         dot_i      : in  std_logic;  -- Morse code - dot
         dash_i     : in  std_logic;  -- Morse code - dash
-        bin_o    : out  std_logic_vector(7 downto 0)
+        bin_o    : out  std_logic_vector(7 downto 0);
+        shift_o : out std_logic
     );
 end entity morse_to_bin;
 
@@ -76,7 +77,8 @@ begin
  
     p_morse_to_bin: process(enter)
         begin
-        if enter = '1' then
+        if rising_edge(enter) then
+            shift_o <= '1';
                 case i is
                     when 1 =>
                         case s_morse_local(i-1 downto 0) is 
@@ -85,7 +87,7 @@ begin
                             when "1" =>
                                 bin_o <= "01010100"; -- T 
                             when others =>
-                                NULL;                      
+                                shift_o <= '0';
                         end case; 
                     when 2 => 
                         case s_morse_local(i-1 downto 0) is 
@@ -98,7 +100,7 @@ begin
                             when "11" =>
                                  bin_o <= "01001101"; -- M 
                             when others =>
-                                NULL;                                     
+                                shift_o <= '0';
                         end case;    
                     when 3 =>
                         case s_morse_local(i-1 downto 0) is 
@@ -119,7 +121,7 @@ begin
                             when "111" =>
                                 bin_o <= "01001111"; --  O 
                             when others =>
-                                NULL;                                                                    
+                                shift_o <= '0';
                         end case;
                    
                     when 4 =>
@@ -149,7 +151,7 @@ begin
                             when "1011" =>
                                 bin_o <= "01010001"; -- Q
                             when others =>
-                                NULL;                                                               
+                                shift_o <= '0';
                             end case; 
                             
                     when 5 =>
@@ -175,12 +177,15 @@ begin
                         when "01111" =>
                             bin_o <= "00111001"; -- 9
                         when others =>
-                        NULL;                                              
+                            shift_o <= '0';
                     end case; 
                     when others =>
-                        NULL; 
+                        shift_o <= '0';
                     end case;
             i:=0;              
+            end if;
+            if falling_edge(enter) then
+                shift_o <= '0';
             end if;
     end process p_morse_to_bin;
 

@@ -60,7 +60,7 @@ architecture Behavioral of top is
     signal s_dot_o: std_logic;
     signal s_dash_o: std_logic;
     signal s_bin_o: std_logic_vector(7 downto 0);
-    
+    signal s_shift: std_logic;
     
     
 begin
@@ -81,8 +81,8 @@ begin
             enter => BTNC,
             bin_o => s_bin_o,
             dot_i => s_dot_o,
-            dash_i => s_dash_o
-            
+            dash_i => s_dash_o,
+            shift_o => s_shift
                      
     );
     
@@ -98,7 +98,7 @@ begin
             data_o(6) => s_char6,
             data_o(7) => s_char7,
             reset => BTNR,
-            clock => BTNC
+            clock => s_shift
     );
     
     display_driver: entity work.display_driver

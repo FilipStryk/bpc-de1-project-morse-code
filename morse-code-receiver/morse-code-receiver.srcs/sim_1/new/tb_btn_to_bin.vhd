@@ -36,7 +36,7 @@ entity tb_btn_to_bin is
 end tb_btn_to_bin;
 
 architecture Behavioral of tb_btn_to_bin is
-constant c_CLK_100MHZ_PERIOD : time := 10 ms;
+constant c_CLK_100MHZ_PERIOD : time := 10 ns;
     signal s_clk    : std_logic;
     signal s_enter   : std_logic;
     signal s_loc_rst   : std_logic; 
@@ -45,7 +45,7 @@ constant c_CLK_100MHZ_PERIOD : time := 10 ms;
     signal s_dash    : std_logic;
     signal s_bin    : std_logic_vector(7 downto 0);
     signal s_seg    : std_logic_vector(7 -1 downto 0);
-    
+    signal s_shift  : std_logic;
     
 begin
     
@@ -64,8 +64,16 @@ begin
             dot_i => s_dot,
             dash_i => s_dash,
             enter => s_enter,
-            bin_o => s_bin            
+            bin_o => s_bin,
+            shift_o => s_shift            
         ); 
+    
+    sr : entity work.shift_register
+        port map(
+            clock => s_shift,
+            reset => '0',
+            data_i => s_bin
+        );
         
     bin_7seg: entity work.bin_7seg
     port map(
@@ -87,65 +95,101 @@ begin
     p_stimulus : process
         begin
         report "Stimulus process started" severity note;
+            s_loc_rst <= '1';
+            s_btn <= '0';
+            s_enter <= '0';
+            wait for 10 ns;
             s_loc_rst <= '0';
             s_btn <= '0';   
-            wait for 100 ns;
+            wait for 10 ns;
             -- A
             s_btn <= '1';
-            wait for 1000 ms;  
+            wait for 100 ns;  
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_btn <= '1';
-            wait for 2000 ms ;          
+            wait for 200 ns ;          
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_enter <= '1';
-            wait for 50 ms;
+            wait for 50 ns;
             s_enter <= '0';
-            wait for 2000 ms;
+            wait for 200 ns;
             
-            -- skuska reset
+--             skuska reset
             s_btn <= '1';
-            wait for 2000 ms ;          
+            wait for 200 ns ;          
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_btn <= '1';
-            wait for 1000 ms;  
+            wait for 100 ns;  
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_loc_rst <= '1';
-            wait for 500 ms;
+            wait for 50 ns;
             s_loc_rst <= '0';
             
             --B    
             s_btn <= '1';
-            wait for 2000 ms ;          
+            wait for 200 ns ;          
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_btn <= '1';
-            wait for 1000 ms;  
+            wait for 100 ns;  
             s_btn <= '0';
-            wait for 1000 ms;
+            wait for 100 ns;
             
             s_btn <= '1';
-            wait for 1000 ms;
+            wait for 100 ns;
             s_btn <= '0';
-            wait for 1000 ms;  
+            wait for 100 ns;  
             
             s_btn <= '1';
-            wait for 1000 ms;
+            wait for 100 ns;
             s_btn <= '0';
-            wait for 1000 ms;          
+            wait for 100 ns;          
             
             s_enter <= '1';
-            wait for 50 ms;
+            wait for 50 ns;
             s_enter <= '0';
-            wait for 2000 ms;
+            wait for 200 ns;
+            
+            -- C    
+            s_btn <= '1';
+            wait for 200 ns ;          
+            s_btn <= '0';
+            wait for 100 ns;
+            
+            s_btn <= '1';
+            wait for 100 ns;  
+            s_btn <= '0';
+            wait for 100 ns;
+            
+            s_btn <= '1';
+            wait for 200 ns;
+            s_btn <= '0';
+            wait for 100 ns;  
+            
+            s_btn <= '1';
+            wait for 100 ns;
+            s_btn <= '0';
+            wait for 100 ns;          
+            
+            s_enter <= '1';
+            wait for 50 ns;
+            s_enter <= '0';
+            wait for 200 ns;
+            
+            s_enter <= '1';
+            wait for 50 ns;
+            s_enter <= '0';
+            wait for 200 ns;
+
                    
         report "Stimulus process finished" severity note;
         wait;
