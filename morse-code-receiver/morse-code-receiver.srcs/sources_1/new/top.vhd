@@ -38,8 +38,6 @@ entity top is
            BTNL : in STD_LOGIC;
            BTNU : in std_logic;
            BTNR : in std_logic;
-           s_local_rst : in STD_LOGIC;
-           rst : in STD_LOGIC;
            CA : out STD_LOGIC;
            CB : out STD_LOGIC;
            CC : out STD_LOGIC;
