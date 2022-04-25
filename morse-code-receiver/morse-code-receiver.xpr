@@ -33,7 +33,7 @@
     <Option Name="SimulatorGccInstallDirActiveHdl" Val=""/>
     <Option Name="TargetLanguage" Val="VHDL"/>
     <Option Name="SimulatorLanguage" Val="VHDL"/>
-    <Option Name="BoardPart" Val=""/>
+    <Option Name="BoardPart" Val="digilentinc.com:nexys-a7-50t:part0:1.2"/>
     <Option Name="BoardPartRepoPaths" Val="$PPRDIR/../../../../../../../home/filip/Aplikace/Xilinx/vivado-boards-master/new/board_files"/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
@@ -139,6 +139,12 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/new/nexys-a7-50t.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
@@ -243,7 +249,9 @@
       <RQSFiles/>
     </Run>
   </Runs>
-  <Board/>
+  <Board>
+    <Jumpers/>
+  </Board>
   <DashboardSummary Version="1" Minor="0">
     <Dashboards>
       <Dashboard Name="default_dashboard">
