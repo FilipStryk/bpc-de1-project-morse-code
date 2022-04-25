@@ -36,12 +36,15 @@ begin
                 s_counter <= (others => '0');
                 dot_o <= '0';
                  dash_o <= '0';
-            elsif (btn_i = '1' and s_en = '1') then
-                s_counter <= s_counter + 1;    
-            elsif falling_edge(btn_i) and s_counter <= 1 then
+             end if;
+            if (btn_i = '1' and s_en = '1') then
+                s_counter <= s_counter + 1;
+            end if;    
+            if (falling_edge(btn_i) and s_counter <= 1) then
                 dot_o <= '1'; 
                 dash_o <= '0';
-            elsif falling_edge(btn_i) and s_counter >= 2 and s_counter <= 4 then
+             end if;
+            if (falling_edge(btn_i) and s_counter >= 2 and s_counter <= 4) then
                 dash_o <= '1';
                 dot_o <= '0';  
             end if;    
