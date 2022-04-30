@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_morse_to_bin_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_morse_to_bin" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="4000001fs"></ZoomEndTime>
+      <Cursor1Time time="3585960fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_clk">
+      <obj_property name="ElementShortName">s_clk</obj_property>
+      <obj_property name="ObjectShortName">s_clk</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_rst">
+      <obj_property name="ElementShortName">s_rst</obj_property>
+      <obj_property name="ObjectShortName">s_rst</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_dot">
+      <obj_property name="ElementShortName">s_dot</obj_property>
+      <obj_property name="ObjectShortName">s_dot</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_dash">
+      <obj_property name="ElementShortName">s_dash</obj_property>
+      <obj_property name="ObjectShortName">s_dash</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_enter">
+      <obj_property name="ElementShortName">s_enter</obj_property>
+      <obj_property name="ObjectShortName">s_enter</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_morse_to_bin/s_bin">
+      <obj_property name="ElementShortName">s_bin[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_bin[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_morse_to_bin/s_morse">
+      <obj_property name="ElementShortName">s_morse[4:0]</obj_property>
+      <obj_property name="ObjectShortName">s_morse[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_morse_to_bin/s_morse[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_morse_to_bin/s_morse[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_morse_to_bin/s_morse[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_morse_to_bin/s_morse[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_morse_to_bin/s_morse[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="other" fp_name="/tb_morse_to_bin/uut/s_len">
+      <obj_property name="ElementShortName">s_len</obj_property>
+      <obj_property name="ObjectShortName">s_len</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/uut/s_enter_rising_edge">
+      <obj_property name="ElementShortName">s_enter_rising_edge</obj_property>
+      <obj_property name="ObjectShortName">s_enter_rising_edge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/uut/s_enter_falling_edge">
+      <obj_property name="ElementShortName">s_enter_falling_edge</obj_property>
+      <obj_property name="ObjectShortName">s_enter_falling_edge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/uut/s_dot_rising_edge">
+      <obj_property name="ElementShortName">s_dot_rising_edge</obj_property>
+      <obj_property name="ObjectShortName">s_dot_rising_edge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/uut/s_dash_rising_edge">
+      <obj_property name="ElementShortName">s_dash_rising_edge</obj_property>
+      <obj_property name="ObjectShortName">s_dash_rising_edge</obj_property>
+   </wvobject>
+</wave_config>

@@ -49,7 +49,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="nexys-a7-50t"/>
-    <Option Name="WTXSimLaunchSim" Val="397"/>
+    <Option Name="WTXSimLaunchSim" Val="414"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -195,12 +195,18 @@
       </File>
       <File Path="$PPRDIR/tb_edge_detector_behav.wcfg">
         <FileInfo>
+          <Attr Name="UserDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tb_morse_to_bin_behav.wcfg">
+        <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="tb_edge_detector"/>
+        <Option Name="TopModule" Val="tb_morse_to_bin"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -212,6 +218,7 @@
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_btn_to_morse_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_edge_detector_behav.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_morse_to_bin_behav.wcfg"/>
         <Option Name="xsim.simulate.runtime" Val="4000ns"/>
       </Config>
     </FileSet>

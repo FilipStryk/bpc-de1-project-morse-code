@@ -48,7 +48,8 @@ entity top is
            AN: out STD_LOGIC_VECTOR (7 downto 0);
            LED_CNT     : out std_logic_vector(8 - 1 downto 0);
            LED16_G : out std_logic;
-           LED16_R : out std_logic
+           LED16_R : out std_logic;
+           LED_MORSE   : out std_logic_vector(5 - 1 downto 0)
     );
 end top;
 
@@ -92,13 +93,14 @@ begin
     
     morse_to_bin : entity work.morse_to_bin
         port map(
-            local_rst => BTNU,
-            enter => BTNC,
+            clk => CLK100MHZ,
+            rst => BTNU,
+            enter_i => BTNC,
             bin_o => s_bin_o,
             dot_i => s_dot_o,
             dash_i => s_dash_o,
-            shift_o => s_shift
-                     
+            shift_o => s_shift,
+            morse_o => LED_MORSE(4 downto 0)
     );
     
     shift_register: entity work.shift_register
