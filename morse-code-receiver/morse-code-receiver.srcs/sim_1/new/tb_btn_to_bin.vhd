@@ -52,7 +52,7 @@ begin
     btn_to_morse : entity work.btn_to_morse
         port map(
             clk => s_clk,
-            local_rst => s_loc_rst,
+            rst => s_loc_rst,
             btn_i => s_btn,
             dot_o => s_dot,
             dash_o => s_dash

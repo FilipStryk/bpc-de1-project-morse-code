@@ -45,7 +45,11 @@ entity top is
            CE : out STD_LOGIC;
            CF : out STD_LOGIC;
            CG : out STD_LOGIC;
-           AN: out STD_LOGIC_VECTOR (7 downto 0));
+           AN: out STD_LOGIC_VECTOR (7 downto 0);
+           LED_CNT     : out std_logic_vector(8 - 1 downto 0);
+           LED16_G : out std_logic;
+           LED16_R : out std_logic
+    );
 end top;
 
 architecture Behavioral of top is
@@ -65,14 +69,25 @@ architecture Behavioral of top is
     
 begin
     btn_to_morse : entity work.btn_to_morse
+        generic map(
+--            g_DOT_MIN => 2,
+--            g_DOT_MAX => 13,
+--            g_DASH_MIN => 14,
+--            g_DASH_MAX => 50
+            g_DOT_MIN => 1, -- for simulation only
+            g_DOT_MAX => 5, -- for simulation only
+            g_DASH_MIN => 6, -- for simulation only
+            g_DASH_MAX => 10 -- for simulation only
+        )
         port map(
             btn_i => BTNL,
-            clk => CLK100MHz,
-            local_rst => BTNU,
+            clk => CLK100MHZ,
+            rst => BTNU,
             dot_o => s_dot_o,
-            dash_o => s_dash_o
-    
-    
+            dash_o => s_dash_o,
+            led_dot_o => LED16_R,
+            led_dash_o => LED16_G,
+            cnt_o => LED_CNT(7 downto 0)
     );
     
     morse_to_bin : entity work.morse_to_bin
