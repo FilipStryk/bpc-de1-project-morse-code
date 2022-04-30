@@ -46,6 +46,16 @@ Entita funguje jako stavový automat se 4 stavy - `INIT`, `PUSHED`, `DOT` a `DAS
 #### Průběhy signálů při simulaci (detail resetu)
 ![btn_to_morse waveforms](images/tb/btn_to_morse_reset_detail.png)
 
+
+### edge_detector ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/edge_detector.vhd))
+
+Tato entity slouží k detekci náběžné a sestupné hrany signálu jako náhrada za funkce `rising_edge` a `falling_edge`, které by se měly používat pouze pro hodinové signály.
+
+Vstupem entity je hodinový signál `clk` a signál, na kterém se detekují hrany `sig_i`. Výtupy pak jsou `rise_o` a `fall_o`, které jsou aktivní při detekování náběžné, resp. sestupné hrany. Při každé náběžné hraně hodinového signálu je do interních signálů uložena aktuální a předcházející hodnota `sig_i`. Jednoduchými logickými [výrazy](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/edge_detector.vhd#L32-L33) je pak detekována změna z nízké na vysokou úroveň a naopak.
+
+#### Průběhy signálů při simulaci
+![edge_detector waveforms](images/tb/edge_detector.png)
+
 <a name="top"></a>
 
 ## Popis a simulace TOP modulu
