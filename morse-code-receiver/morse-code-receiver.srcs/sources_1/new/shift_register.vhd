@@ -9,27 +9,28 @@ entity shift_register is
         g_SR_WIDTH : natural := 8
     );    
     port (
-        clock       : in std_logic;
-        reset       : in std_logic;
-        data_i      : in std_logic_vector(8 - 1 downto 0);
-        data_o      : out t_byte_array(0 to g_SR_WIDTH-1)
+        clk     : in std_logic;
+        arst    : in std_logic;
+        data_i  : in std_logic_vector(8 - 1 downto 0);
+        data_o  : out t_byte_array(0 to g_SR_WIDTH-1)
     );
 end shift_register;
 
-architecture Behavioral of shift_register is
+architecture behavioral of shift_register is
     
     signal s_length : natural := 0;
     
 begin   
 
-    p_shift_register: process(clock, reset)
+
+    p_shift_register: process(clk, arst)
         variable v_output : t_byte_array(0 to g_SR_WIDTH-1);
     begin
             
-        if (reset = '1') then
+        if (arst = '1') then
             s_length <= 0;
             v_output := (others => (others => '0'));
-        elsif falling_edge(clock) then
+        elsif falling_edge(clk) then
             if (s_length < 7) then
                 s_length <= s_length + 1;
             end if;
@@ -48,4 +49,5 @@ begin
 
     end process p_shift_register;
 
-end Behavioral;
+
+end behavioral;

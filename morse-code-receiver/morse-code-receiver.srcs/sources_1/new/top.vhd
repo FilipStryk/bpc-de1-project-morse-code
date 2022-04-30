@@ -105,6 +105,8 @@ begin
     
     shift_register: entity work.shift_register
         port map(
+            clk => s_shift,
+            arst => BTNR,
             data_i => s_bin_o,
             data_o(0) => s_char0,
             data_o(1) => s_char1,
@@ -113,9 +115,7 @@ begin
             data_o(4) => s_char4,
             data_o(5) => s_char5,
             data_o(6) => s_char6,
-            data_o(7) => s_char7,
-            reset => BTNR,
-            clock => s_shift
+            data_o(7) => s_char7
     );
     
     display_driver: entity work.display_driver
