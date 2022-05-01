@@ -63,10 +63,10 @@ begin
                 s_morse_local <= (others => '0');
                 s_len <= 0;
             else
-                if (s_dot_rising_edge = '1') then
+                if (s_dot_rising_edge = '1' and s_len <= 4) then
                     s_len <= s_len + 1;
                     s_morse_local(s_len) <= '0';
-                elsif (s_dash_rising_edge = '1') then
+                elsif (s_dash_rising_edge = '1' and s_len <= 4) then
                     s_len <= s_len + 1;
                     s_morse_local(s_len) <= '1';
                 elsif (s_enter_rising_edge = '1') then

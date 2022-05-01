@@ -13,7 +13,8 @@ architecture testbench of tb_morse_to_bin is
     signal s_enter  : std_logic;
     signal s_bin    : std_logic_vector(8 - 1 downto 0);
     signal s_morse  : std_logic_vector(5 - 1 downto 0);
-      
+    signal s_shift  : std_logic;
+
 begin
 
     uut : entity work.morse_to_bin
@@ -24,7 +25,8 @@ begin
         dash_i  => s_dash,
         enter_i => s_enter,
         bin_o   => s_bin,
-        morse_o => s_morse
+        morse_o => s_morse,
+        shift_o => s_shift
     );
 
 
@@ -955,6 +957,38 @@ begin
         s_dash <= '0';
         wait for 10 ns;
                 
+        s_enter <= '1';
+        wait for 10 ns;
+        s_enter <= '0';
+        wait for 10 ns;
+
+
+
+        s_dash <= '1';
+        wait for 10 ns;
+        s_dash <= '0';
+        wait for 10 ns;
+        
+        s_dash <= '1';
+        wait for 10 ns;
+        s_dash <= '0';
+        wait for 10 ns;
+        
+        s_dot <= '1';
+        wait for 10 ns;
+        s_dot <= '0';
+        wait for 10 ns;
+        
+        s_dash <= '1';
+        wait for 10 ns;
+        s_dash <= '0';
+        wait for 10 ns;
+        
+        s_dash <= '1';
+        wait for 10 ns;
+        s_dash <= '0';
+        wait for 10 ns;
+        
         s_enter <= '1';
         wait for 10 ns;
         s_enter <= '0';
