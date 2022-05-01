@@ -31,7 +31,7 @@ begin
             s_length <= 0;
             v_output := (others => (others => '0'));
         elsif falling_edge(clk) then
-            if (s_length < 7) then
+            if (s_length < g_SR_WIDTH-1) then
                 s_length <= s_length + 1;
             end if;
 

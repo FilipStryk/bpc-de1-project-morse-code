@@ -63,7 +63,7 @@ Vstupem entity je hodinový signál `clk` a signál, na kterém se detekují hra
 
 ### morse_to_bin ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/morse_to_bin.vhd))
 
-Entita `morse_to_bin` tvoří jádro celého projektu. Jejím úkolem je převést vstupní sekvenci teček a čárek, které reprezentují znaky v Morseově abecedě, na [ASCII](https://en.wikipedia.org/wiki/ASCII) kód.
+Entita `morse_to_bin` tvoří jádro celého projektu. Jejím úkolem je převést vstupní sekvenci teček a čárek, která reprezentuje znaky v Morseově abecedě, na [ASCII](https://en.wikipedia.org/wiki/ASCII) kód.
 
 Vystupy entity jsou opět `clk` a `rst` pro hodinový signál a reset, `dot_i` a `dash_i` pro zadání tečky, resp. čárky, a `enter_i`, který slouží pro potvrzení zadávání znaku. Výstupem pak je osmibitový vektor `bin_o` s ASCII kódem zadaného znaku, pětibitový (maximální počet symbolů pro jeden znak v Morseově abecedě je 5) vektor `morse_o` s aktuální zadanou sekvencí, ve které je tečka reprezentována nulou a čárka jedničkou. Posledním výstupem je `shift_o`, který slouží k indikaci přeložení nového znaku pro následující blok - posuvný registr.
 
@@ -95,6 +95,19 @@ Hlavní část entity tvoří synchronní proces `p_morse_to_bin` spouštěný p
 
 #### Průběhy signálů při simulaci (zadání neplatného znaku - není vyslán impulz na výstupu `shift_o`)
 ![morse_to_bin waveforms](images/tb/morse_to_bin_invalid.png)
+
+
+### shift_register ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/shift_register.vhd))
+
+Posuvný registr slouží k postupnému ukládání přeložených znaků před jejich zobrazením.
+
+Vstup tvoří jeden osmibitový vektor `data_i`, asynchronní reset `arst` a hodinový vstup `clk`. Jediným výstupem je `data_o`, což je pole osmibitových vektorů. Datový typ `t_byte_array` pro tento výstup je definován v [balíčku](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/data_types_pkg.vhd) `data_types_pkg`. Šířka posuvného registru je nastavitelná pomocí hodnoty `g_SR_WIDTH` s výchozí hodnotou 8.
+
+Registr je tvořen jediným procesem `p_shift_registr` reagujícím na signály `clk` a `arst`. Při aktivní úrovni asynchronního resetu je celý registr okamžitě vynulován. V interním signálu `s_length` je uložen aktuální počet hodnot na výstupu registru. Při sestupné hraně hodinového signálu jsou hodnoty na výstupu posunuty o jednu pozici s tím, že hodnota na konci výstupu je odstraněna a na nultou pozici je umístěna hodnota ze vstupu `data_i`.
+
+#### Průběhy signálů při simulaci
+![shift_register waveforms](images/tb/shift_register.png)
+
 
 <a name="top"></a>
 

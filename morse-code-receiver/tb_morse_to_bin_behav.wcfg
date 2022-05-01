@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="4000001fs"></ZoomEndTime>
-      <Cursor1Time time="3585960fs"></Cursor1Time>
+      <ZoomStartTime time="3117360fs"></ZoomStartTime>
+      <ZoomEndTime time="3908861fs"></ZoomEndTime>
+      <Cursor1Time time="4000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="13" />
    <wvobject type="logic" fp_name="/tb_morse_to_bin/s_clk">
       <obj_property name="ElementShortName">s_clk</obj_property>
       <obj_property name="ObjectShortName">s_clk</obj_property>
@@ -92,6 +92,10 @@
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_morse_to_bin/s_shift">
+      <obj_property name="ElementShortName">s_shift</obj_property>
+      <obj_property name="ObjectShortName">s_shift</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/tb_morse_to_bin/uut/s_len">
       <obj_property name="ElementShortName">s_len</obj_property>

@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1068675fs"></ZoomEndTime>
-      <Cursor1Time time="2191842fs"></Cursor1Time>
+      <ZoomEndTime time="900001fs"></ZoomEndTime>
+      <Cursor1Time time="1421000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="4" />
    <wvobject type="logic" fp_name="/tb_shift_register/s_clk">
@@ -37,68 +37,70 @@
       <obj_property name="ObjectShortName">s_data_i[7:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_shift_register/s_data_o">
       <obj_property name="ElementShortName">s_data_o[7:0][7:0]</obj_property>
       <obj_property name="ObjectShortName">s_data_o[7:0][7:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
       <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[7]">
          <obj_property name="ElementShortName">[7][7:0]</obj_property>
          <obj_property name="ObjectShortName">[7][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[6]">
          <obj_property name="ElementShortName">[6][7:0]</obj_property>
          <obj_property name="ObjectShortName">[6][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[5]">
          <obj_property name="ElementShortName">[5][7:0]</obj_property>
          <obj_property name="ObjectShortName">[5][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[4]">
          <obj_property name="ElementShortName">[4][7:0]</obj_property>
          <obj_property name="ObjectShortName">[4][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[3]">
          <obj_property name="ElementShortName">[3][7:0]</obj_property>
          <obj_property name="ObjectShortName">[3][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[2]">
          <obj_property name="ElementShortName">[2][7:0]</obj_property>
          <obj_property name="ObjectShortName">[2][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[1]">
          <obj_property name="ElementShortName">[1][7:0]</obj_property>
          <obj_property name="ObjectShortName">[1][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_shift_register/s_data_o[0]">
          <obj_property name="ElementShortName">[0][7:0]</obj_property>
          <obj_property name="ObjectShortName">[0][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FFFF00</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
