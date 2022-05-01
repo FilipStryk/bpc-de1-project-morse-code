@@ -109,6 +109,17 @@ Registr je tvořen jediným procesem `p_shift_registr` reagujícím na signály 
 ![shift_register waveforms](images/tb/shift_register.png)
 
 
+### bin_7seg ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/bin_7seg.vhd))
+
+Úkolem této entity je převod ASCII kódu pro `A-Z` a `0-9` na rozsvícené segmenty sedmisegmentového displeje.
+
+Vstupem entity je osmibitový vektor `s_bin` s ASCI kódem a výstupem sedmibitový vektor `seg_o`, kde každý bit reprezentuje jeden segment displeje (A-G). Jednička značí, že daný segment nesvítí. V nule ja pak segment rozsvícen, protože na použité vývojové desce jsou umístěny displeje se společnou anodou pro všechny segmenty.
+
+Celou entitu tvoří jediný kombinační proces `p_7seg_decoder`, ve kterém je pomocí struktury `case`-`when` převeden na rozsvícené segmenty. V případě, že je na vstupu jiná hodnota, než pro definované znaky, tak jsou všechny segmenty zhasnuty.
+
+#### Průběhy signálů při simulaci
+![bin_7seg waveforms](images/tb/bin_7seg.png)
+
 <a name="top"></a>
 
 ## Popis a simulace TOP modulu
