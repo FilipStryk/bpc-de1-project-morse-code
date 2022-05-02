@@ -109,16 +109,33 @@ Registr je tvořen jediným procesem `p_shift_registr` reagujícím na signály 
 ![shift_register waveforms](images/tb/shift_register.png)
 
 
+<a name="bin_7seg"></a>
+
 ### bin_7seg ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/bin_7seg.vhd))
 
 Úkolem této entity je převod ASCII kódu pro `A-Z` a `0-9` na rozsvícené segmenty sedmisegmentového displeje.
 
 Vstupem entity je osmibitový vektor `s_bin` s ASCI kódem a výstupem sedmibitový vektor `seg_o`, kde každý bit reprezentuje jeden segment displeje (A-G). Jednička značí, že daný segment nesvítí. V nule ja pak segment rozsvícen, protože na použité vývojové desce jsou umístěny displeje se společnou anodou pro všechny segmenty.
 
-Celou entitu tvoří jediný kombinační proces `p_7seg_decoder`, ve kterém je pomocí struktury `case`-`when` převeden na rozsvícené segmenty. V případě, že je na vstupu jiná hodnota, než pro definované znaky, tak jsou všechny segmenty zhasnuty.
+Celou entitu tvoří jediný kombinační proces `p_7seg_decoder`, ve kterém je pomocí struktury `case`-`when` ASCII kód převeden na rozsvícené segmenty. V případě, že je na vstupu jiná hodnota, než pro definované znaky, tak jsou všechny segmenty zhasnuty.
+
+#### Zobrazení písmen a čísel na displeji
+![bin_7seg displays](images/displays.png)
 
 #### Průběhy signálů při simulaci
 ![bin_7seg waveforms](images/tb/bin_7seg.png)
+
+
+### display_driver ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd))
+
+O zobrazení zadaných znaků na osmi sedmisegmentových displejích se stará tato entita.
+
+Jejími vstupy je, kromě typických `clk` a `rst`, také 8 osmibitových vstupů `char0_i` až `char7_i` s ASCII kódy znaků pro jednotlivé displeje. Výstupy má entita dva - sedmibitový vektor `seg_o` reprezentující segmenty displeje a osmibitový vektor `anodes_o`, který představuje společné anody displejů.
+
+Jádrem entity je multiplexer, který je tvořen synchronním procesem `p_mux`. V něm je podle hodnoty interního čítače na interní signál `s_ascii` přivedena hodnota z jednoho ze vstupů a také je aktivována anoda pro odpovídající displej. Interní [3bitový](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L42) (8 displejů => 8 hodnot => 3 bity) čítač je realizován entitou [cnt_up_down](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/cnt_up_down.vhd) a k jeho inkrementaci dochází při náběžné hraně signálu `s_en`. Na něm je přítomen hodinový signál s periodou [2 ms](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L31), který je zajišteň entitou [clock_enable](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/clock_enable.vhd). Hodnota periody 2 ms byla zvolena proto, aby jeden cyklus, ve kterém jsou postupně rpzsvěceny všechny displeje, trval celkem 16 ms, což je maximání doba, při které lidské oko nepostřehne, že se displeje zhasínají. ASCII kód v signálu `s_ascii` je nakonec přeložen na rozsvícené segmenty pomocí entity [bin_7seg](#bin_7seg).
+
+#### Schéma
+![display_driver diagram](images/display_driver.png)
 
 <a name="top"></a>
 
