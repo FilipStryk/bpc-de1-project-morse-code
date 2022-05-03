@@ -20,7 +20,7 @@
 
 ## Projekt
 
-Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseové abecedy), převod a zobrazení znaku na 7-segmentovom displeje. Projekt využíva koncepce running text, t.j. novo zadaný znak se zobrazí na úplně pravém displeji a všechny predchozí zadané znaky se posunou o 1 displej doleva. Znak, který byl pri zadávaní nového znaku na úplně levém displeji, zmizí.
+Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abecedy), převod a zobrazení znaku na 7segmentovém displeji. Projekt využíva koncepce running text, t.j. novo zadaný znak se zobrazí na úplně pravém displeji a všechny predchozí zadané znaky se posunou o 1 displej doleva. Znak, který byl pri zadávaní nového znaku na úplně levém displeji, zmizí.
 
 <a name="hardware"></a>
 
@@ -40,7 +40,7 @@ Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseové abece
 - LED(0-7) - znázorňuje a kontroluje hodnotu čítače počas doby stlačení `BTNL`
 - LED(11-15) - znázorňuje zadaný symbol (nesvití - tečka, svití - čárka) 
 
-7 segmentový displej [21]:
+7segmentový displej [21]:
 - zobrazujeme zadaný znak, při stisknutí `BTNR` t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
 
 <a name="modules"></a>
