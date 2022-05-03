@@ -3,7 +3,7 @@
 ### Členové týmu
 
 * Filip Stryk (zodpovědný za edge_detector, shift_register a btn_to_morse (přepsaný na FSM), dokumentace)
-* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schém, dokumentace)
+* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schémat, dokumentace)
 * Natália Pločeková (zodpovědná za moduly morse_to_bin, btn_to_morse, dokumentace)
 * David Pěčonka (zodpovědný za top modul a video)
 
@@ -28,20 +28,26 @@ Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abeced
 ![Nexys](images/Nexys-A50t.png)
 
 4 tlačítka [13]: 
--  `BTNL` využívame ke zadávaní symbolů (tečky, čárky), které rozlišujeme podle délky jeho stisknutí 
--  `BTNC` využívame ke ukončení zadávaní symbolů a prevedení posloupnosti na znak, který se pak zobrazí na displeji  
+-  `BTNL` využívame k zadávaní symbolů (tečky, čárky), které rozlišujeme podle délky jeho stisknutí 
+-  `BTNC` využívame k ukončení zadávaní symbolů a převedení posloupnosti na znak, který se pak zobrazí na displeji  
 -  `BTNU` využívame ke zresetování zadávaného symbolu
 -  `BTNR` využívame ke zresetování displeje
 
 1 RGB LED [17]:
-- délka stisku `BTNL` ovlivňuje farbu svícení, na základe které si kontrolujeme zadaný symbol. Pri podržení tlačidla v intervalu od 50 ms do 325 ms svítí červená, pak od 350 ms do 2.5 sekundy svítí zelená)
+- délka stisku `BTNL` ovlivňuje barvu svícení, na základě které si kontrolujeme zadaný symbol. Při podržení tlačítka v intervalu od 50 ms do 325 ms svítí červená, pak od 350 ms do 2.5 sekundy svítí zelená)
 
 13 LED [19]:
-- LED(0-7) - znázorňuje a kontroluje hodnotu čítače počas doby stlačení `BTNL`
+- LED(0-7) - znázorňuje a kontroluje hodnotu čítače během stisknutí `BTNL`
 - LED(11-15) - znázorňuje zadaný symbol (nesvití - tečka, svití - čárka) 
 
 7segmentový displej [21]:
-- zobrazujeme zadaný znak, při stisknutí `BTNR`, t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
+- zobrazuje zadané znaky, při stisknutí `BTNR`, t.j. zadaní nového znaku se předcházející posune o jeden doleva
+
+### Schéma zapojení
+
+Použité LED jsou přes rezistor zapojeny trvale k zemi a spínají se tedy vysokou logickou úrovní. Segmenty jednotlivých displejů jsou v uspořádání se společnou anodou, tzn. spínají se katody => svítí při nízké logické úrovni. Anody jednotlivých displejů jsou spínány pomocí PNP tranzistorů, takže jsou taktéž sepnuty pouze pokud je na výstupu nula. Anody RGB LED jsou trvale přes rezistor připojeny k napájecímu napětí a jejich katody jsou spínány pomocí NPN tranzistorů. K použitým tlačítkům jsou připojeny pull-down rezistory, tudíž stisknutí tlačítka značí vysoká logická úroveň.
+
+![schematic](images/schematic.png)
 
 <a name="modules"></a>
 
@@ -49,7 +55,7 @@ Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abeced
 
 ### btn_to_morse ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/btn_to_morse.vhd))
 
-Modul `btn_to_morse` slouží k zadání tečky nebo čárky pomocí jediného vstupního signálu `btn_i`. Tečka a čárka jsou rozlišeny podle doby, po kterou je signál ve vysoké úrovni. Časové intervaly pro tečku/čárku je možné nastavit pomocí hodnot `g_DOT_MIN`, `g_DOT_MAX`, `g_DASH_MIN`, `g_DASH_MAX`, kde každá hodnota značí počet cyklů interního hodinového signálu s frekvencí 25 ms, který je odvozen ze základního 100MHz hodinového signálu pomocí entity `clock_enable` s hodnotou `g_MAX` nastavenou na 2 500 000 cyklů.
+Modul `btn_to_morse` slouží k zadání tečky nebo čárky pomocí jediného vstupního signálu `btn_i`. Tečka a čárka jsou rozlišeny podle doby, po kterou je signál ve vysoké úrovni. Časové intervaly pro tečku/čárku je možné nastavit pomocí hodnot `g_DOT_MIN`, `g_DOT_MAX`, `g_DASH_MIN`, `g_DASH_MAX`, kde každá hodnota značí počet cyklů interního hodinového signálu s frekvencí 25 ms, který je odvozen ze základního 100MHz hodinového signálu pomocí entity `clock_enable` s hodnotou `g_MAX` nastavenou na 2 500 000 period.
 
 Kromě již zmíněného vstupu `btn_i` obsahuje entita dále vstupy `clk` a `rst` pro hodinový signál a reset. Výstupy pak jsou `dot_o` a `dash_o`, které slouží jako hlavní výstup, a `led_dot_o` a `led_dash_o`, které slouží k indikaci toho, jaký symbol by byl zadán, kdyby v danou chvíli přešel vstupní signál do logické nuly. Posledním výstupem je `cnt_o` s aktuální hodnotou interního čítače.
 
@@ -68,7 +74,7 @@ Entita funguje jako stavový automat se 4 stavy - `INIT`, `PUSHED`, `DOT` a `DAS
 
 ### edge_detector ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/edge_detector.vhd))
 
-Tato entity slouží k detekci náběžné a sestupné hrany signálu jako náhrada za funkce `rising_edge` a `falling_edge`, které by se měly používat pouze pro hodinové signály.
+Tato entita slouží k detekci náběžné a sestupné hrany signálu jako náhrada za funkce `rising_edge` a `falling_edge`, které by se měly používat pouze pro hodinové signály.
 
 Vstupem entity je hodinový signál `clk` a signál, na kterém se detekují hrany `sig_i`. Výtupy pak jsou `rise_o` a `fall_o`, které jsou aktivní při detekování náběžné, resp. sestupné hrany. Při každé náběžné hraně hodinového signálu je do interních signálů uložena aktuální a předcházející hodnota `sig_i`. Jednoduchými logickými [výrazy](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/edge_detector.vhd#L32-L33) je pak detekována změna z nízké na vysokou úroveň a naopak.
 
@@ -80,7 +86,7 @@ Vstupem entity je hodinový signál `clk` a signál, na kterém se detekují hra
 
 Entita `morse_to_bin` tvoří jádro celého projektu. Jejím úkolem je převést vstupní sekvenci teček a čárek, která reprezentuje znaky v Morseově abecedě, na [ASCII](https://en.wikipedia.org/wiki/ASCII) kód.
 
-Vystupy entity jsou opět `clk` a `rst` pro hodinový signál a reset, `dot_i` a `dash_i` pro zadání tečky, resp. čárky, a `enter_i`, který slouží pro potvrzení zadávání znaku. Výstupem pak je osmibitový vektor `bin_o` s ASCII kódem zadaného znaku, pětibitový (maximální počet symbolů pro jeden znak v Morseově abecedě je 5) vektor `morse_o` s aktuální zadanou sekvencí, ve které je tečka reprezentována nulou a čárka jedničkou. Posledním výstupem je `shift_o`, který slouží k indikaci přeložení nového znaku pro následující blok - posuvný registr.
+Vystupy entity jsou opět `clk` a `rst` pro hodinový signál a reset, `dot_i` a `dash_i` pro zadání tečky, resp. čárky, a `enter_i`, který slouží pro potvrzení zadané sekvence. Výstupem pak je osmibitový vektor `bin_o` s ASCII kódem zadaného znaku, pětibitový (maximální počet symbolů pro jeden znak v Morseově abecedě je 5) vektor `morse_o` s aktuální zadanou sekvencí, ve které je tečka reprezentována nulou a čárka jedničkou. Posledním výstupem je `shift_o`, který slouží k indikaci přeložení nového znaku pro následující blok - posuvný registr.
 
 Hlavní část entity tvoří synchronní proces `p_morse_to_bin` spouštěný při náběžné hraně hodinového signálu. Pokud je aktivní vstup `rst`, tak dojde k vynulování zadané sekvence (`s_morse_local`) a její délky (`s_len`). V [opačném případě](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/morse_to_bin.vhd#L65-L180) dojde při náběžné hraně vstupu `s_dot`/`s_dash` k přidání dalšího symbolu do sekvence a k inkrementaci signálu s její aktuální délkou. K detekci náběžných hran je použit [detektor hran](#edge_detector). Při náběžné  hraně vstupu `s_enter` je přeložena sekvence uložená v `s_morse_local` na ASCII kód odpovídající danému znaku z množiny `A-Z` a `0-9`. Zárověň je také vyslán jeden impulz (pouze při zadání platného znaku) na výstupu `s_shift` a jsou vynulovány signály `s_morse_local` a `s_cnt`.
 
@@ -118,7 +124,7 @@ Posuvný registr slouží k postupnému ukládání přeložených znaků před 
 
 Vstup tvoří jeden osmibitový vektor `data_i`, asynchronní reset `arst` a hodinový vstup `clk`. Jediným výstupem je `data_o`, což je pole osmibitových vektorů. Datový typ `t_byte_array` pro tento výstup je definován v [balíčku](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/data_types_pkg.vhd) `data_types_pkg`. Šířka posuvného registru je nastavitelná pomocí hodnoty `g_SR_WIDTH` s výchozí hodnotou 8.
 
-Registr je tvořen jediným procesem `p_shift_registr` reagujícím na signály `clk` a `arst`. Při aktivní úrovni asynchronního resetu je celý registr okamžitě vynulován. V interním signálu `s_length` je uložen aktuální počet hodnot na výstupu registru. Při sestupné hraně hodinového signálu jsou hodnoty na výstupu posunuty o jednu pozici s tím, že hodnota na konci výstupu je odstraněna a na nultou pozici je umístěna hodnota ze vstupu `data_i`.
+Registr je tvořen jediným procesem `p_shift_register` reagujícím na signály `clk` a `arst`. Při aktivní úrovni asynchronního resetu je celý registr okamžitě vynulován. V interním signálu `s_length` je uložen aktuální počet hodnot na výstupu registru. Při sestupné hraně hodinového signálu jsou hodnoty na výstupu posunuty o jednu pozici s tím, že hodnota na konci výstupu je odstraněna a na nultou pozici je umístěna hodnota ze vstupu `data_i`.
 
 #### Průběhy signálů při simulaci
 ![shift_register waveforms](images/tb/shift_register.png)
@@ -147,7 +153,7 @@ O zobrazení zadaných znaků na osmi sedmisegmentových displejích se stará t
 
 Jejími vstupy je, kromě typických `clk` a `rst`, také 8 osmibitových vstupů `char0_i` až `char7_i` s ASCII kódy znaků pro jednotlivé displeje. Výstupy má entita dva - sedmibitový vektor `seg_o` reprezentující segmenty displeje a osmibitový vektor `anodes_o`, který představuje společné anody displejů.
 
-Jádrem entity je multiplexer, který je tvořen synchronním procesem `p_mux`. V něm je podle hodnoty interního čítače na interní signál `s_ascii` přivedena hodnota z jednoho ze vstupů a také je aktivována anoda pro odpovídající displej. Interní [3bitový](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L42) (8 displejů => 8 hodnot => 3 bity) čítač je realizován entitou [cnt_up_down](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/cnt_up_down.vhd) a k jeho inkrementaci dochází při náběžné hraně signálu `clk` a zároveň aktivní úrovni `s_en`. Na něm je přítomen hodinový signál s periodou [2 ms](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L31), který je zajišteň entitou [clock_enable](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/clock_enable.vhd). Hodnota periody 2 ms byla zvolena proto, aby jeden cyklus, ve kterém jsou postupně rpzsvěceny všechny displeje, trval celkem 16 ms, což je maximání doba, při které lidské oko nepostřehne, že se displeje zhasínají. ASCII kód v signálu `s_ascii` je nakonec přeložen na rozsvícené segmenty pomocí entity [bin_7seg](#bin_7seg).
+Jádrem entity je multiplexer, který je tvořen synchronním procesem `p_mux`. V něm je podle hodnoty interního čítače na interní signál `s_ascii` přivedena hodnota z jednoho ze vstupů a také je aktivována anoda pro odpovídající displej. Interní [3bitový](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L42) (8 displejů => 8 hodnot => 3 bity) čítač je realizován entitou [cnt_up_down](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/cnt_up_down.vhd) a k jeho inkrementaci dochází při náběžné hraně signálu `clk` a zároveň aktivní úrovni `s_en`. Na něm je přítomen hodinový signál s periodou [2 ms](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L31), který je zajišteň entitou [clock_enable](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/clock_enable.vhd). Hodnota periody 2 ms byla zvolena proto, aby jeden cyklus, ve kterém jsou postupně rozsvěceny všechny displeje, trval celkem 16 ms, což je maximání doba, při které lidské oko nepostřehne, že se displeje zhasínají. ASCII kód v signálu `s_ascii` je nakonec přeložen na rozsvícené segmenty pomocí entity [bin_7seg](#bin_7seg).
 
 #### Schéma
 ![display_driver diagram](images/display_driver.png)
@@ -211,7 +217,7 @@ V simulacích je zobrazen průběh signálů při napsání *UREL*, po kterém n
 
 ## Video
 
-Write your text here
+[![Img alt text](https://img.youtube.com/vi/wDSF7sooolU/0.jpg)](https://www.youtube.com/watch?v=wDSF7sooolU)
 
 <a name="references"></a>
 
