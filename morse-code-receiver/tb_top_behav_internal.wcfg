@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="data_types_pkg" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="4000001fs"></ZoomEndTime>
+      <Cursor1Time time="4000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char0">
+      <obj_property name="ElementShortName">s_char0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char0[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char1">
+      <obj_property name="ElementShortName">s_char1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char1[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char2">
+      <obj_property name="ElementShortName">s_char2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char2[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char3">
+      <obj_property name="ElementShortName">s_char3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char3[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char4">
+      <obj_property name="ElementShortName">s_char4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char4[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char5">
+      <obj_property name="ElementShortName">s_char5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char5[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char6">
+      <obj_property name="ElementShortName">s_char6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char6[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_char7">
+      <obj_property name="ElementShortName">s_char7[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_char7[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut_top/s_dot_o">
+      <obj_property name="ElementShortName">s_dot_o</obj_property>
+      <obj_property name="ObjectShortName">s_dot_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut_top/s_dash_o">
+      <obj_property name="ElementShortName">s_dash_o</obj_property>
+      <obj_property name="ObjectShortName">s_dash_o</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut_top/s_bin_o">
+      <obj_property name="ElementShortName">s_bin_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_bin_o[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut_top/s_shift">
+      <obj_property name="ElementShortName">s_shift</obj_property>
+      <obj_property name="ObjectShortName">s_shift</obj_property>
+   </wvobject>
+</wave_config>

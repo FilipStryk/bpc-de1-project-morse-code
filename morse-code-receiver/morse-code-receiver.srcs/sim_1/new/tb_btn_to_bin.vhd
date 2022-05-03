@@ -60,18 +60,19 @@ begin
         
     morse_to_bin: entity work.morse_to_bin
         port map(
-            local_rst => s_loc_rst,
+            clk => s_clk,
+            rst => s_loc_rst,
             dot_i => s_dot,
             dash_i => s_dash,
-            enter => s_enter,
+            enter_i => s_enter,
             bin_o => s_bin,
             shift_o => s_shift            
         ); 
     
     sr : entity work.shift_register
         port map(
-            clock => s_shift,
-            reset => '0',
+            clk => s_shift,
+            arst => '0',
             data_i => s_bin
         );
         

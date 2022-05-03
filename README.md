@@ -119,7 +119,7 @@ Vstupem entity je osmibitový vektor `s_bin` s ASCI kódem a výstupem sedmibito
 
 Celou entitu tvoří jediný kombinační proces `p_7seg_decoder`, ve kterém je pomocí struktury `case`-`when` ASCII kód převeden na rozsvícené segmenty. V případě, že je na vstupu jiná hodnota, než pro definované znaky, tak jsou všechny segmenty zhasnuty.
 
-#### Zobrazení písmen a čísel na displeji
+#### Zobrazení písmen a číslic na displeji
 ![bin_7seg displays](images/displays.png)
 
 #### Průběhy signálů při simulaci
@@ -132,16 +132,65 @@ O zobrazení zadaných znaků na osmi sedmisegmentových displejích se stará t
 
 Jejími vstupy je, kromě typických `clk` a `rst`, také 8 osmibitových vstupů `char0_i` až `char7_i` s ASCII kódy znaků pro jednotlivé displeje. Výstupy má entita dva - sedmibitový vektor `seg_o` reprezentující segmenty displeje a osmibitový vektor `anodes_o`, který představuje společné anody displejů.
 
-Jádrem entity je multiplexer, který je tvořen synchronním procesem `p_mux`. V něm je podle hodnoty interního čítače na interní signál `s_ascii` přivedena hodnota z jednoho ze vstupů a také je aktivována anoda pro odpovídající displej. Interní [3bitový](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L42) (8 displejů => 8 hodnot => 3 bity) čítač je realizován entitou [cnt_up_down](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/cnt_up_down.vhd) a k jeho inkrementaci dochází při náběžné hraně signálu `s_en`. Na něm je přítomen hodinový signál s periodou [2 ms](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L31), který je zajišteň entitou [clock_enable](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/clock_enable.vhd). Hodnota periody 2 ms byla zvolena proto, aby jeden cyklus, ve kterém jsou postupně rpzsvěceny všechny displeje, trval celkem 16 ms, což je maximání doba, při které lidské oko nepostřehne, že se displeje zhasínají. ASCII kód v signálu `s_ascii` je nakonec přeložen na rozsvícené segmenty pomocí entity [bin_7seg](#bin_7seg).
+Jádrem entity je multiplexer, který je tvořen synchronním procesem `p_mux`. V něm je podle hodnoty interního čítače na interní signál `s_ascii` přivedena hodnota z jednoho ze vstupů a také je aktivována anoda pro odpovídající displej. Interní [3bitový](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L42) (8 displejů => 8 hodnot => 3 bity) čítač je realizován entitou [cnt_up_down](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/cnt_up_down.vhd) a k jeho inkrementaci dochází při náběžné hraně signálu `clk` a zároveň aktivní úrovni `s_en`. Na něm je přítomen hodinový signál s periodou [2 ms](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/display_driver.vhd#L31), který je zajišteň entitou [clock_enable](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/clock_enable.vhd). Hodnota periody 2 ms byla zvolena proto, aby jeden cyklus, ve kterém jsou postupně rpzsvěceny všechny displeje, trval celkem 16 ms, což je maximání doba, při které lidské oko nepostřehne, že se displeje zhasínají. ASCII kód v signálu `s_ascii` je nakonec přeložen na rozsvícené segmenty pomocí entity [bin_7seg](#bin_7seg).
 
 #### Schéma
 ![display_driver diagram](images/display_driver.png)
 
 <a name="top"></a>
 
-## Popis a simulace TOP modulu
+## Popis a simulace TOP modulu ([kód](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/top.vhd))
 
-Write your text here.
+Top modul slouží k propojení jednotlivých dílčích modulů (`btn_to_morse`, `morse_to_bin`, `shift_register` a `display_driver`). Všechny entity jsou propojeny pomocí [interních signálů](morse-code-receiver/morse-code-receiver.srcs/sources_1/new/top.vhd#L28-L39).
+
+Vstupů je 5  - hodinový signál `CLK100MHZ` a 4 tlačítka `BTNC`, `BTNL`, `BTNU`, `BTNR`. Výstupy tvoří 7 katod sedmisegmentových displejů `CA`-`CG`, osmibitový vektor společných anod `AN`, 13 LED v osmibitovém vektoru `LED_CNT` a pětibitovém `LED_MORSE` a RGB LED `LED16`, ze které je využita pouze zelená `LED16_G` a červená `LED16_R` barva. Přiřazení vstupů a výstupů skutečným hardwarovým prvkům je popsáno v souboru [nexys-a7-50t.xdc](morse-code-receiver/morse-code-receiver.srcs/constrs_1/new/nexys-a7-50t.xdc).
+
+Jednotlivá stisknutí tlačítka `BTNL` jsou převedena na tečku/čárku modulem `btn_to_morse`. Sekvence teček/čárek je následně po potvrzení tlačítkem `BTNC` modulem `morse_to_bin` přeložena z Morseovy abecedy na ASCII kód daného znaku, který je přiveden na vstup posuvného registru a celý registr je jednou posunut. 8 výstupních hodnot registru je poté přivedeno na vstupy modulu `display_driver`, ve kterém jsou z ASCII kódu převedeny na rozsvícené segmenty a pak jsou na odpovídajících displejích zobrazeny.
+
+Vstupy:
+- `CLK100MHZ` - hodinový signál
+- `BTNL` - zadání tečky/čárky
+- `BTNC` - potvrzení zadaného znaku
+- `BTNU` - resetování rozepsaného znaku
+- `BTNR` - vymazání displeje
+
+Výstupy:
+- `CA`-`CG` - katody sedmisegmentových displejů
+- `AN` - společné anody displejů
+- `LED_CNT` - hodnota čítače čítajícího délku stisknutí tlačítka
+- `LED_MORSE` - zadaná sekvence teček/čárek (rozsvícená LED - čárka)
+- `LED16_R` - indikace zadání tečky
+- `LED16_G` - indikace zadání tečky
+
+V simulacích je zobrazen průběh signálů při napsání *UREL*, po kterém následuje zadání tří čárek, reset aktuálně rozepsaného písmene a poté reset všech zobrazených znaků.
+
+#### Průběhy vstupních a výstupních signálů při simulaci (0 až 1000 ns)
+![top waveforms](images/tb/top_IO_0-1k.png)
+
+#### Průběhy interních signálů při simulaci (0 až 1000 ns)
+![top waveforms](images/tb/top_internal_0-1k.png)
+
+#### Průběhy vstupních a výstupních signálů při simulaci (1000 až 2000 ns)
+![top waveforms](images/tb/top_IO_1-2k.png)
+
+#### Průběhy interních signálů při simulaci (1000 až 2000 ns)
+![top waveforms](images/tb/top_internal_1-2k.png)
+
+#### Průběhy vstupních a výstupních signálů při simulaci (2000 až 3000 ns)
+![top waveforms](images/tb/top_IO_2-3k.png)
+
+#### Průběhy interních signálů při simulaci (2000 až 3000 ns)
+![top waveforms](images/tb/top_internal_2-3k.png)
+
+#### Průběhy vstupních a výstupních signálů při simulaci (3000 až 4000 ns)
+![top waveforms](images/tb/top_IO_3-4k.png)
+
+#### Průběhy interních signálů při simulaci (3000 až 4000 ns)
+![top waveforms](images/tb/top_internal_3-4k.png)
+
+
+#### Schéma
+![top diagram](images/top.png)
 
 <a name="video"></a>
 

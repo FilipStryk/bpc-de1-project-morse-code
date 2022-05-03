@@ -11,137 +11,195 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="4000001fs"></ZoomEndTime>
+      <ZoomStartTime time="3337083fs"></ZoomStartTime>
+      <ZoomEndTime time="4132584fs"></ZoomEndTime>
       <Cursor1Time time="4000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
-   <wvobject type="logic" fp_name="/tb_top/CLK100MHZ">
-      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
-      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
+   <WVObjectSize size="17" />
+   <wvobject type="logic" fp_name="/tb_top/s_CLK100MHZ">
+      <obj_property name="ElementShortName">s_CLK100MHZ</obj_property>
+      <obj_property name="ObjectShortName">s_CLK100MHZ</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/BTNC">
-      <obj_property name="ElementShortName">BTNC</obj_property>
-      <obj_property name="ObjectShortName">BTNC</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_BTNC">
+      <obj_property name="ElementShortName">s_BTNC</obj_property>
+      <obj_property name="ObjectShortName">s_BTNC</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/BTNL">
-      <obj_property name="ElementShortName">BTNL</obj_property>
-      <obj_property name="ObjectShortName">BTNL</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_BTNL">
+      <obj_property name="ElementShortName">s_BTNL</obj_property>
+      <obj_property name="ObjectShortName">s_BTNL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/BTNU">
-      <obj_property name="ElementShortName">BTNU</obj_property>
-      <obj_property name="ObjectShortName">BTNU</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_BTNU">
+      <obj_property name="ElementShortName">s_BTNU</obj_property>
+      <obj_property name="ObjectShortName">s_BTNU</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/BTNR">
-      <obj_property name="ElementShortName">BTNR</obj_property>
-      <obj_property name="ObjectShortName">BTNR</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_BTNR">
+      <obj_property name="ElementShortName">s_BTNR</obj_property>
+      <obj_property name="ObjectShortName">s_BTNR</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/LED16_R">
-      <obj_property name="ElementShortName">LED16_R</obj_property>
-      <obj_property name="ObjectShortName">LED16_R</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CA">
+      <obj_property name="ElementShortName">s_CA</obj_property>
+      <obj_property name="ObjectShortName">s_CA</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/LED16_G">
-      <obj_property name="ElementShortName">LED16_G</obj_property>
-      <obj_property name="ObjectShortName">LED16_G</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CB">
+      <obj_property name="ElementShortName">s_CB</obj_property>
+      <obj_property name="ObjectShortName">s_CB</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/LED_CNT">
-      <obj_property name="ElementShortName">LED_CNT[7:0]</obj_property>
-      <obj_property name="ObjectShortName">LED_CNT[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CC">
+      <obj_property name="ElementShortName">s_CC</obj_property>
+      <obj_property name="ObjectShortName">s_CC</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/LED_MORSE">
-      <obj_property name="ElementShortName">LED_MORSE[4:0]</obj_property>
-      <obj_property name="ObjectShortName">LED_MORSE[4:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CD">
+      <obj_property name="ElementShortName">s_CD</obj_property>
+      <obj_property name="ObjectShortName">s_CD</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CA">
-      <obj_property name="ElementShortName">CA</obj_property>
-      <obj_property name="ObjectShortName">CA</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CE">
+      <obj_property name="ElementShortName">s_CE</obj_property>
+      <obj_property name="ObjectShortName">s_CE</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CB">
-      <obj_property name="ElementShortName">CB</obj_property>
-      <obj_property name="ObjectShortName">CB</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CF">
+      <obj_property name="ElementShortName">s_CF</obj_property>
+      <obj_property name="ObjectShortName">s_CF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CC">
-      <obj_property name="ElementShortName">CC</obj_property>
-      <obj_property name="ObjectShortName">CC</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_CG">
+      <obj_property name="ElementShortName">s_CG</obj_property>
+      <obj_property name="ObjectShortName">s_CG</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CD">
-      <obj_property name="ElementShortName">CD</obj_property>
-      <obj_property name="ObjectShortName">CD</obj_property>
+   <wvobject type="array" fp_name="/tb_top/s_AN">
+      <obj_property name="ElementShortName">s_AN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_AN[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_AN[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CE">
-      <obj_property name="ElementShortName">CE</obj_property>
-      <obj_property name="ObjectShortName">CE</obj_property>
+   <wvobject type="array" fp_name="/tb_top/s_LED_CNT">
+      <obj_property name="ElementShortName">s_LED_CNT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_LED_CNT[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CF">
-      <obj_property name="ElementShortName">CF</obj_property>
-      <obj_property name="ObjectShortName">CF</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_LED16_R">
+      <obj_property name="ElementShortName">s_LED16_R</obj_property>
+      <obj_property name="ObjectShortName">s_LED16_R</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/CG">
-      <obj_property name="ElementShortName">CG</obj_property>
-      <obj_property name="ObjectShortName">CG</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/s_LED16_G">
+      <obj_property name="ElementShortName">s_LED16_G</obj_property>
+      <obj_property name="ObjectShortName">s_LED16_G</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/AN">
-      <obj_property name="ElementShortName">AN[7:0]</obj_property>
-      <obj_property name="ObjectShortName">AN[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/s_dot_o">
-      <obj_property name="ElementShortName">s_dot_o</obj_property>
-      <obj_property name="ObjectShortName">s_dot_o</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/s_dash_o">
-      <obj_property name="ElementShortName">s_dash_o</obj_property>
-      <obj_property name="ObjectShortName">s_dash_o</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_bin_o">
-      <obj_property name="ElementShortName">s_bin_o[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_bin_o[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut_top/s_shift">
-      <obj_property name="ElementShortName">s_shift</obj_property>
-      <obj_property name="ObjectShortName">s_shift</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char0">
-      <obj_property name="ElementShortName">s_char0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char0[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char1">
-      <obj_property name="ElementShortName">s_char1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char1[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char2">
-      <obj_property name="ElementShortName">s_char2[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char2[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char3">
-      <obj_property name="ElementShortName">s_char3[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char3[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char4">
-      <obj_property name="ElementShortName">s_char4[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char4[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char5">
-      <obj_property name="ElementShortName">s_char5[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char5[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char6">
-      <obj_property name="ElementShortName">s_char6[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char6[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut_top/s_char7">
-      <obj_property name="ElementShortName">s_char7[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_char7[7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   <wvobject type="array" fp_name="/tb_top/s_LED_MORSE">
+      <obj_property name="ElementShortName">s_LED_MORSE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">s_LED_MORSE[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_top/s_LED_MORSE[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_LED_MORSE[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_LED_MORSE[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_LED_MORSE[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/s_LED_MORSE[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>
