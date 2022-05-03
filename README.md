@@ -2,10 +2,10 @@
 
 ### Členové týmu
 
-* David Pěčonka (zodpovědný za top modul a video)
-* Natália Pločeková (zodpovědná za moduly morse_to_bin, btn_to_morse, dokumentace)
-* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schém, dokumentace)
 * Filip Stryk (zodpovědný za edge_detector, shift_register a btn_to_morse (přepsaný na FSM), dokumentace)
+* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schém, dokumentace)
+* Natália Pločeková (zodpovědná za moduly morse_to_bin, btn_to_morse, dokumentace)
+* David Pěčonka (zodpovědný za top modul a video)
 
 ### Obsah
 
