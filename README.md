@@ -41,7 +41,7 @@ Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abeced
 - LED(11-15) - znázorňuje zadaný symbol (nesvití - tečka, svití - čárka) 
 
 7segmentový displej [21]:
-- zobrazujeme zadaný znak, při stisknutí `BTNR` t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
+- zobrazujeme zadaný znak, při stisknutí `BTNR`, t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
 
 <a name="modules"></a>
 
