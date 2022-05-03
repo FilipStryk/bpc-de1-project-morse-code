@@ -34,7 +34,7 @@ Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abeced
 -  `BTNR` využívame ke zresetování displeje
 
 1 RGB LED [17]:
-- délka stisku `BTNL` ovlivňuje farbu svícení, na základe které si kontrolujeme zadaný symbol. Pri podržení tlačidla v intervalu od 50 ms do 325 ms svití červená, pak od 350 ms do 2.5 sekundy svití zelená)
+- délka stisku `BTNL` ovlivňuje farbu svícení, na základe které si kontrolujeme zadaný symbol. Pri podržení tlačidla v intervalu od 50 ms do 325 ms svítí červená, pak od 350 ms do 2.5 sekundy svítí zelená)
 
 13 LED [19]:
 - LED(0-7) - znázorňuje a kontroluje hodnotu čítače počas doby stlačení `BTNL`
