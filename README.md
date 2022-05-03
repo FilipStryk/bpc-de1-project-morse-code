@@ -20,7 +20,7 @@
 
 ## Projekt
 
-Write your text here.
+Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseové abecedy), převod a zobrazení znaku na 7-segmentovom displeje. Projekt využíva koncepce running text, t.j. novo zadaný znak se zobrazí na úplně pravém displeji a všechny predchozí zadané znaky se posunou o 1 displej doleva. Znak, který byl pri zadávaní nového znaku na úplně levém displeji, zmizí.
 
 <a name="hardware"></a>
 
