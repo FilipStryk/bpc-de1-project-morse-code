@@ -25,8 +25,12 @@ Write your text here.
 <a name="hardware"></a>
 
 ## Popis HW
-
-Write your text here.
+![Nexys](images/Nexys-A50t.png)
+Ve svém projektu využívame 4 tlačídka: 
+-  `BTNL` využívame ke zadávaní symbolů (tečky, čárky), které rozlišujeme podle délky jeho stisknutí 
+-  `BTNC` využívame ke ukončení zadávaní symbolů a prevedení posloupnosti na znak, který se pak zobrazí na displeji  
+-  `BTNU` využívame ke zresetování zadávaného symbolu
+-  `BTNR` využívame ke zresetování displeje
 
 <a name="modules"></a>
 
