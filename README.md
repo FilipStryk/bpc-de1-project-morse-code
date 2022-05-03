@@ -217,4 +217,8 @@ Write your text here
 
 ## Zdroje
 
-1. Write your text here.
+1. [https://vhdlguide.readthedocs.io/en/latest/index.html](https://vhdlguide.readthedocs.io/en/latest/index.html)
+2. [https://stackoverflow.com/questions/33945914/vhdl-is-it-possible-to-concurrently-shift-array-elements](https://stackoverflow.com/questions/33945914/vhdl-is-it-possible-to-concurrently-shift-array-elements)
+3. [https://stackoverflow.com/questions/18291515/variable-number-of-in-ports-in-an-entity](https://stackoverflow.com/questions/18291515/variable-number-of-in-ports-in-an-entity)
+4. [https://stackoverflow.com/questions/63291844/vhdl-unconstrained-arrays-and-size-instaniation](https://stackoverflow.com/questions/63291844/vhdl-unconstrained-arrays-and-size-instaniation)
+5. [https://vhdlguide.com/2016/07/23/edge-detector/](https://vhdlguide.com/2016/07/23/edge-detector/)
