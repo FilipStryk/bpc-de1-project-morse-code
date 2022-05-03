@@ -27,11 +27,21 @@ Write your text here.
 ## Popis HW
 ![Nexys](images/Nexys-A50t.png)
 
-Ve svém projektu využívame 4 tlačítka [13]: 
+4 tlačítka [13]: 
 -  `BTNL` využívame ke zadávaní symbolů (tečky, čárky), které rozlišujeme podle délky jeho stisknutí 
 -  `BTNC` využívame ke ukončení zadávaní symbolů a prevedení posloupnosti na znak, který se pak zobrazí na displeji  
 -  `BTNU` využívame ke zresetování zadávaného symbolu
 -  `BTNR` využívame ke zresetování displeje
+
+1 RGB LED [17]:
+- délka stisku `BTNL` ovlivňuje farbu svícení, na základe které si kontrolujeme zadaný symbol. Pri podržení tlačidla v intervalu od 50 ms do 325 ms svití červená, pak od 350 ms do 2.5 sekundy svití zelená)
+
+13 LED [19]:
+- LED(0-7) - znázorňuje a kontroluje hodnotu čítače počas doby stlačení `BTNL`
+- LED(11-15) - znázorňuje zadaný symbol (nesvití - tečka, svití - čárka) 
+
+7 segmentový displej [21]:
+- zobrazujeme zadaný znak, při stisknutí `BTNR` t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
 
 <a name="modules"></a>
 
