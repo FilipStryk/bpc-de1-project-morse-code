@@ -2,31 +2,46 @@
 
 ### Členové týmu
 
-* David Pěčonka (responsible for xxx)
-* Natália Pločeková (responsible for xxx)
-* Petra Slotová (responsible for xxx)
-* Filip Stryk (responsible for xxx)
+* Filip Stryk (zodpovědný za edge_detector, shift_register a btn_to_morse (přepsaný na FSM), dokumentace)
+* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schém, dokumentace)
+* Natália Pločeková (zodpovědná za moduly morse_to_bin, btn_to_morse, dokumentace)
+* David Pěčonka (zodpovědný za top modul a video)
 
 ### Obsah
 
-* [Project objectives](#objectives)
-* [Hardware description](#hardware)
-* [VHDL modules description and simulations](#modules)
-* [TOP module description and simulations](#top)
+* [Projekt](#objectives)
+* [Popis HW](#hardware)
+* [Popis a simulace VHDL modulů](#modules)
+* [Popis a simulace TOP modulu](#top)
 * [Video](#video)
-* [References](#references)
+* [Zdroje](#references)
 
 <a name="objectives"></a>
 
 ## Projekt
 
-Write your text here.
+Cílem projektu bylo zpracování zadané posloupnosti symbolů (Morseovy abecedy), převod a zobrazení znaku na 7segmentovém displeji. Projekt využíva koncepce running text, t.j. nově zadaný znak se zobrazí na úplně pravém displeji a všechny předchozí zadané znaky se posunou o 1 displej doleva. Znak, který byl při zadávaní nového znaku na úplně levém displeji, zmizí.
 
 <a name="hardware"></a>
 
 ## Popis HW
+![Nexys](images/Nexys-A50t.png)
 
-Write your text here.
+4 tlačítka [13]: 
+-  `BTNL` využívame ke zadávaní symbolů (tečky, čárky), které rozlišujeme podle délky jeho stisknutí 
+-  `BTNC` využívame ke ukončení zadávaní symbolů a prevedení posloupnosti na znak, který se pak zobrazí na displeji  
+-  `BTNU` využívame ke zresetování zadávaného symbolu
+-  `BTNR` využívame ke zresetování displeje
+
+1 RGB LED [17]:
+- délka stisku `BTNL` ovlivňuje farbu svícení, na základe které si kontrolujeme zadaný symbol. Pri podržení tlačidla v intervalu od 50 ms do 325 ms svítí červená, pak od 350 ms do 2.5 sekundy svítí zelená)
+
+13 LED [19]:
+- LED(0-7) - znázorňuje a kontroluje hodnotu čítače počas doby stlačení `BTNL`
+- LED(11-15) - znázorňuje zadaný symbol (nesvití - tečka, svití - čárka) 
+
+7segmentový displej [21]:
+- zobrazujeme zadaný znak, při stisknutí `BTNR`, t.j. zadaní nového znaku se predcházajíci posune o jedno dolava
 
 <a name="modules"></a>
 
@@ -200,6 +215,6 @@ Write your text here
 
 <a name="references"></a>
 
-## References
+## Zdroje
 
 1. Write your text here.
