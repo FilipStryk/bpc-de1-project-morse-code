@@ -2,19 +2,19 @@
 
 ### Členové týmu
 
-* David Pěčonka (responsible for xxx)
-* Natália Pločeková (responsible for xxx)
-* Petra Slotová (responsible for xxx)
-* Filip Stryk (responsible for xxx)
+* David Pěčonka (zodpovědný za top modul a video)
+* Natália Pločeková (zodpovědná za moduly morse_to_bin, btn_to_morse, dokumentace)
+* Petra Slotová (zodpovědná za moduly bin_7seg a display_driver, zpracování schém, dokumentace)
+* Filip Stryk (zodpovědný za edge_detector, shift_register a btn_to_morse - přepsaný na FSM), dokumentace)
 
 ### Obsah
 
-* [Project objectives](#objectives)
-* [Hardware description](#hardware)
-* [VHDL modules description and simulations](#modules)
-* [TOP module description and simulations](#top)
+* [Projekt](#objectives)
+* [Popis HW](#hardware)
+* [Popis a simulace VHDL modulů](#modules)
+* [Popis a simulace TOP modulu](#top)
 * [Video](#video)
-* [References](#references)
+* [Zdroje](#references)
 
 <a name="objectives"></a>
 
@@ -151,6 +151,6 @@ Write your text here
 
 <a name="references"></a>
 
-## References
+## Zdroje
 
 1. Write your text here.
